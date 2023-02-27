@@ -1,11 +1,7 @@
 import { injectable } from '@theia/core/shared/inversify';
-import { Command, CommandRegistry, MenuModelRegistry } from '@theia/core/lib/common';
+import { CommandRegistry, MenuModelRegistry } from '@theia/core/lib/common';
 import { WorkspaceCommands } from '@theia/workspace/lib/browser/workspace-commands';
 import { WorkspaceFrontendContribution } from '@theia/workspace/lib/browser/workspace-frontend-contribution';
-export const HelloWorldExtensionCommand: Command = {
-    id: 'HelloWorldExtension.command',
-    label: 'Say Hello'
-};
 
 @injectable()
 export class HelloWorldExtensionCommandContribution extends WorkspaceFrontendContribution {
@@ -19,6 +15,7 @@ export class HelloWorldExtensionCommandContribution extends WorkspaceFrontendCon
         WorkspaceCommands.OPEN_RECENT_WORKSPACE,
         WorkspaceCommands.ADD_FOLDER,
         WorkspaceCommands.SAVE_WORKSPACE_AS,
+        WorkspaceCommands.CLOSE,
     ];
 
     registerCommands(registry: CommandRegistry): void {
@@ -40,6 +37,7 @@ export class HelloWorldExtensionMenuContribution extends WorkspaceFrontendContri
         WorkspaceCommands.OPEN_RECENT_WORKSPACE,
         WorkspaceCommands.ADD_FOLDER,
         WorkspaceCommands.SAVE_WORKSPACE_AS,
+        WorkspaceCommands.CLOSE,
     ];
 
     registerMenus(registry: MenuModelRegistry): void {
